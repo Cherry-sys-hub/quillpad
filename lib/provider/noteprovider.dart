@@ -20,11 +20,10 @@ class NewNote extends StateNotifier<List<NoteModel>>{
     state = [...state,note];
   }
 
-  void updateNote(int index, NoteModel newNote) {
-    state = [
-      for (int i = 0; i < state.length; i++)
-        if (i == index) newNote else state[i],
-    ];
+  void updateNote(int index, NoteModel note) {
+    final list = List.of(state);
+    list[index] = note;
+    state = list;
   }
 }
 
